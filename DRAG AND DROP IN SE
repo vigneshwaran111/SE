@@ -1,0 +1,31 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class class1 {
+
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		WebDriver obj = new ChromeDriver();
+		System.setProperty("webdriver.chrome.driver", "C://Users//vshanm579//Downloads//chromedriver_win32//chromedriver.exe");		    
+		obj.get("https://jqueryui.com/droppable/");
+	    obj.manage().window().maximize();
+	    obj.switchTo().frame(0);
+	    Thread.sleep(2000);
+	    String source= "/html/body/div[1]/p";
+	    String destination="/html/body/div[2]/p";
+	    WebElement src=obj.findElement(By.xpath(source));
+	    WebElement des=obj.findElement(By.xpath(destination));
+	    Actions act = new Actions(obj);
+	    act.clickAndHold(src).moveToElement(des).release().build().perform();
+	}
+}
+
+
+
+
+
